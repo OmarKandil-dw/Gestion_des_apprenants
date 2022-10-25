@@ -82,4 +82,4 @@ class PromotionController extends Controller
 }
 
 
-// AFFICHAGE GHALAT 
+// AFFICHAGE Not working 
