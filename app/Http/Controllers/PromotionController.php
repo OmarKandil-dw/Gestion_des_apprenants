@@ -70,6 +70,29 @@ class PromotionController extends Controller
     }
 
 
+
+    public function searchapprenants($id,$name=null){
+        
+        if($name == null){
+            $edit = new promotion();    
+            $promotion = $edit::where('id', $id )->get();  
+            $apprenants=Apprenants::select('apprenants.name','email','promotions.id as id_promo','apprenants.id as id_app')
+            ->RightJoin('promotions','promotions.id','=','apprenants.id_promo') 
+            ->where('promotions.id','=',$id)->get();     
+            return view('update_promotion', compact(['promotion', 'apprenants']));
+
+        }
+            else {
+                $edit = new promotion();    
+                $promotion = $edit::where('id', $id )->get();  
+                $apprenants=Apprenants::select('apprenants.name','email','promotions.id as id_promo','apprenants.id as id_app')
+                ->RightJoin('promotions','promotions.id','=','apprenants.id_promo') 
+                ->where('promotions.id','=',$id )->get();     
+                return view('update_promotion', compact(['promotion', 'apprenants']));
+        }
+
+    }
+
     
 
 }

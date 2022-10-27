@@ -56,9 +56,9 @@ Route::get('/delete_apprenants', [ ApprenantsController::class,'delete' ]);
 
 Route::get('/deleteapprenants', [ ApprenantsController::class,'deleteapprenants' ]);
 
-Route::get('/searchappr/{name}',[ ApprenantsController::class ,'searchappr']);
+Route::get('searchapprenants/{id}/{name}',[PromotionController::class,'searchapprenants']);
 
-Route::get('/searchappr',[ ApprenantsController::class ,'searchappr']);
+Route::get('searchapprenants/{id}',[PromotionController::class,'searchapprenants']);
 
 Route::get('/update_apprenants/{id}', [ ApprenantsController::class,'update_apprenants' ]);
 

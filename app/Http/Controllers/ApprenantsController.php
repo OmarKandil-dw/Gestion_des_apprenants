@@ -43,7 +43,6 @@ public function addapprenants($id){
     }
  
     public function edit_apprenants($id,Request $request){
-
         $query = Apprenants::find($request->id)->first();
         $editapprenant = Apprenants::where('id',$id)->first();
         $editapprenant->name = $request->name;
@@ -54,14 +53,5 @@ public function addapprenants($id){
 
     }
 
-    // public function searchappr($name){
 
-    //         if($name == null){
-    //             $apprenants =Apprenants::all();
-    //             return view('update_promotion',compact('apprenants'));        }
-    //         else {
-    //             $apprenants =Apprenants::where('name', 'like','%'.$name.'%')->get();
-    //             return view('update_promotion',compact('apprenants'));
-    //     }
-    // }
 }

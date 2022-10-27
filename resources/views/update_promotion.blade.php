@@ -8,7 +8,8 @@
 </form>
 
 
-{{-- <input type="text" id="searchappr" placeholder="search"> --}}
+<input type="text" id="search" placeholder="search">
+
 <button><a href="{{ URL('addapprenants/' . $promotion[0]->id) }}">Add</a></button>
 
 <table>
@@ -29,6 +30,7 @@
                         <a href="/deleteapprenants?id={{ $row->id_app }}">/Delete </a> 
                     </td> 
                 </tr>
+                <input type="hidden" id="idsearch" value="{{ $row->id_promo }}">
             @endforeach
         @endif
     </tbody>
