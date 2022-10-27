@@ -14,12 +14,6 @@ class ApprenantsController extends Controller
 //     }
 
 
-public function selectpromo(){
-    $promo = promotion::all();
-
-    return view ('update_promotion/{1}', compact("promo"));
-}
-
 
 public function addapprenants($id){
     return view('addapprenants',['id'=>$id]);

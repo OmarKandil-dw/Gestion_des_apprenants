@@ -24,18 +24,6 @@
                 <tr>
                     <td>{{ $row->name }}</td>
                     <td>{{ $row->email }}</td>
-                    <td>
-                            <select id="promotions">
-                                <option value="" selected hidden>-- Promotions --</option>
-                                @foreach ($promotion as $row)
-                                <option value="">{{ $row->id }}</option>
-                                @endforeach
-                               
-                                
-
-
-                            </select>
-                    </td>
                      <td>
                         <a href="/update_apprenants/{{ $row->id_app }}">Edit </a> 
                         <a href="/deleteapprenants?id={{ $row->id_app }}">/Delete </a> 
