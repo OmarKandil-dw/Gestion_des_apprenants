@@ -27,7 +27,7 @@
                     <td>
                             <select id="promotions">
                                 <option value="" selected hidden>-- Promotions --</option>
-                                @foreach ($promo as $row)
+                                @foreach ($promotion as $row)
                                 <option value="">{{ $row->id }}</option>
                                 @endforeach
                                

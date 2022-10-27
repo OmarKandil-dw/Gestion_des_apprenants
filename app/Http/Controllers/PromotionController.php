@@ -37,7 +37,8 @@ class PromotionController extends Controller
     public function update_promotion($id){
         
         $edit = new promotion();    
-         $promotion = $edit::where('id', $id )->get();        
+        $promotion = $edit::where('id', $id )->get();  
+
         $apprenants=apprenants::select('apprenants.name','email','promotions.id as id_promo','apprenants.id as id_app')
         ->RightJoin('promotions','promotions.id','=','apprenants.id_promo') 
         ->where('promotions.id','=',$id)->get();
