@@ -47,17 +47,24 @@ Route::get('search',[PromotionController::class,'search']);
 // Apprenants routes 
 
 
-Route::get('/selectapprenants', [ApprenantsController::class , 'selectapprenants']);
 
-Route::get('/insertapprenants', [ApprenantsController::class ,'insert']);
+Route::get('/addapprenants/{id}', [ApprenantsController::class , 'addapprenants' ]);
 
-Route::get('/delete', [ ApprenantsController::class,'delete' ]);
+Route::get('/insertapprenants', [ApprenantsController::class ,'insertapprenants']);
+
+Route::get('/delete_apprenants', [ ApprenantsController::class,'delete' ]);
+
+Route::get('/deleteapprenants', [ ApprenantsController::class,'deleteapprenants' ]);
+
+Route::get('/searchappr/{name}',[ ApprenantsController::class ,'searchappr']);
+
+Route::get('/searchappr',[ ApprenantsController::class ,'searchappr']);
 
 Route::get('/update_apprenants/{id}', [ ApprenantsController::class,'update_apprenants' ]);
 
 Route::get('/edit_apprenants/{id}', [ ApprenantsController::class,'edit_apprenants' ]);
 
-// Route::get('update_promotion/{id}', [ PromotionController::class, 'show_appr_by_prom' ]);
+Route::get('/update_promotion',[ApprenantsController::class,'selectpromo']);
 
 
 

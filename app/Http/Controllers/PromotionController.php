@@ -35,23 +35,28 @@ class PromotionController extends Controller
 
 
     public function update_promotion($id){
+        
         $edit = new promotion();    
-        $promotion = $edit::where('id', $id )->get();
-        return view('update_promotion', compact('promotion'));
+         $promotion = $edit::where('id', $id )->get();        
+        $apprenants=apprenants::select('apprenants.name','email','promotions.id as id_promo','apprenants.id as id_app')
+        ->RightJoin('promotions','promotions.id','=','apprenants.id_promo') 
+        ->where('promotions.id','=',$id)->get();
+        return view('update_promotion', compact(['promotion', 'apprenants']));
     }
     
+
 
     public function edit($id,Request $request){
         $editpromotion = promotion::where('id',$id)->first();
         $editpromotion->name = $request->name;
         $editpromotion->save();
         return redirect('index');
-        // return $editpromotion;
     }
 
+
+
     public function search($name=null){ 
-        // dd($request->search);
-        //  dd($data);
+        
         if($name == null){
             $data =promotion::all();
             return view('index_search',compact('data'));        }
@@ -64,22 +69,8 @@ class PromotionController extends Controller
     }
 
 
-    public function show_appr_by_prom($id)
-    {
-        // $prom = promotion::where('id', $id)->first();
-        $apprenants = Apprenants::select(
-            'promotions.id as id_prom',
-            'apprenants.id as id_apppr',
-            'promotions.name as nom_prom',
-            'apprenants.name as nom_appr'
-        )
-            ->rightJoin('promotions', 'promotions.id', '=', 'apprenants.id_promo')
-            ->where('promotions.id', $id)
-            ->get();
-        return view('update_promotion', compact('apprenants'));
-    }
+    
 
 }
 
 
-// AFFICHAGE Not working 

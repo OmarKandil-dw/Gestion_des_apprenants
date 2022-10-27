@@ -1,10 +1,30 @@
 
 
 <form action="/insertapprenants" method="get">
+    <input type="text" name="nameapprenants" id="">
+    <input type="text" name="emailapprenants" id="">
+    <input type="hidden" name="promoapprenants" value="{{ $id }}">
+    <button>click</button>
+</form>
+
+
+
+
+
+
+
+
+
+
+{{-- 
+
+<form action="/insertapprenants" method="get">
     <input type="text" name="nameapprenants" id="" placeholder="name">
     <input type="text" name="emailapprenants" id="" placeholder="email">
     <button>Ajouter</button>
 </form>
+
+
 
 
 <div>
@@ -29,4 +49,4 @@
     </tr>
     @endforeach
 </table>
-</div>
+</div> --}}
