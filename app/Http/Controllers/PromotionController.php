@@ -29,7 +29,7 @@ class PromotionController extends Controller
 
     public function deletepromo(Request $request){
 
-        promotion::where('id',$request->id)->delete();
+       promotion::where('id',$request->id)->delete();
         return  redirect('index'); 
     }
 

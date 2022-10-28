@@ -26,7 +26,7 @@ public function addapprenants($id){
         $addapprenants->email = $request->emailapprenants;
         $addapprenants->id_promo = $request->promoapprenants;
         $addapprenants->save(); 
-        return redirect('index');
+        return redirect('/update_promotion'.'/'.$addapprenants->id_promo);
     }
 
     public function deleteapprenants(Request $request){

@@ -11,28 +11,93 @@
 </body>
 </html>
 <style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
+}
+
     body{
-        background-color:white; 
+        background-color:whitesmoke; 
+        margin: 0;
+        padding: 0;
+
     }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.a:hover{
+    text-decoration: none;
+    color: white;
+}
+.data{
+    margin-top: 100px;
+    margin-left: 250px;
+    }
+
 </style>
 
-<a href="add">ajouter</a>
+<ul>
+    <li><a href="/add" style="margin-left:100px;margin-top:2px;" class="a">Ajouter nouveau promotion</a></li>
+    
+    <li><input type="text" name="search" id="search" placeholder="search" style="width:50%; margin-left:500px;margin-top:13px;"> </li>
+  </ul>
 
 
-<input type="text" name="search" id="search" placeholder="search">
+<div id="data" class="data">
 
-
-<div id="data">
-
-    @foreach ($data as $row)
         <div>
-            Id : {{ $row->id }} 
-            Name : {{ $row->name }}
-            <a href="/deletepromo?id={{ $row->id }}">Delete </a> 
-            <a href="/update_promotion/{{ $row->id }}">/ Edit </a> 
-            <br>
+            <table>
+                <tr>
+                    <th>Id promotion </th>
+                    <th> Nom </th>
+                    <th> Actions </th>
+                </tr>
+                @foreach ($data as $row)
+
+                <tr>
+                    <td>{{ $row->id }} </td>
+                    <td>{{ $row->name }}</td>
+                    <td> 
+                        <a href="/update_promotion/{{ $row->id }}"> Modifier </a> 
+                        <a href="/deletepromo?id={{ $row->id }}"> / Supprimer </a> 
+                    </td>
+                </tr>
+                @endforeach
+
+        </table>
         </div>
-    @endforeach
     
 </div>
 
