@@ -30,7 +30,7 @@ class PromotionController extends Controller
     public function deletepromo(Request $request){
 
         promotion::where('id',$request->id)->delete();
-        return redirect('index');
+        return  redirect('index'); 
     }
 
 
@@ -87,7 +87,10 @@ class PromotionController extends Controller
                 $promotion = $edit::where('id', $id )->get();  
                 $apprenants=Apprenants::select('apprenants.name','email','promotions.id as id_promo','apprenants.id as id_app')
                 ->RightJoin('promotions','promotions.id','=','apprenants.id_promo') 
-                ->where('promotions.id','=',$id )->get();     
+                ->where([
+                    ['promotions.id','=',$id],
+                    ['name', 'like','%'.$name.'%']
+                ])->get();
                 return view('update_promotion', compact(['promotion', 'apprenants']));
         }
 

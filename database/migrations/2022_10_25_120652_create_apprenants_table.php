@@ -18,7 +18,8 @@ class CreateApprenantsTable extends Migration
             $table->string('name');
             $table->string('email');
             $table->unsignedBigInteger('id_promo');
-            $table->foreign('id_promo')->references('id')->on('promotions');
+            $table->foreign('id_promo')->references('id')->on('promotions')
+            ->onDelete('cascade');;
             $table->timestamps();
         });
     }
